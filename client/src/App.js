@@ -33,6 +33,7 @@ function App() {
 
     const onLogoutclick = async() =>
     {
+      localStorage.setItem("acessToken","");
       setAcessToken("");
       setLoginStatus(false);
     }
@@ -51,15 +52,16 @@ function App() {
     }
   useEffect(()=>{
 
-    // if(acessToken !== localStorage.getItem("acessToken"))
-    // {
-
-    // }
+    if(acessToken !== localStorage.getItem("acessToken"))
+    {
+      setAcessToken(localStorage.getItem("acessToken"));
+      setLoginStatus(true);
+    }
 
     if(acessToken !== "")
     {
       setDecoded(jwt_decode(acessToken));
-      // localStorage.setItem("acessToken",acessToken);
+      localStorage.setItem("acessToken",acessToken);
       getTimesheetdata();
     }
   },[acessToken])
