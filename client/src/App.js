@@ -13,7 +13,7 @@ function App() {
   const [decoded, setDecoded] = useState("");
   const [timesheet, setTimesheet] = useState([]);
 
-  console.log(localStorage.getItem("acessToken"));
+  // console.log(localStorage.getItem("acessToken"));
 
   const handleLoginSubmit = async({employee_id,password}) =>{
 
@@ -43,16 +43,13 @@ function App() {
       try{
         const response = await axios.get("http://localhost:5001/Timesheet/")
         setTimesheet(response.data);
-        console.log("timesheet updated");
-        // console.log(response.data);
       }
       catch(err){
         console.log(err);
       }
     }
   useEffect(()=>{
-
-    if(acessToken !== localStorage.getItem("acessToken"))
+    if(localStorage.getItem("acessToken")!==null&&localStorage.getItem("acessToken")!=="")
     {
       setAcessToken(localStorage.getItem("acessToken"));
       setLoginStatus(true);

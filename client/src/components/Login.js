@@ -14,7 +14,7 @@ const Login = ({onLoginSubmit}) =>
         
         const response = onLoginSubmit({employee_id,password});
 
-        console.log(response);
+        // console.log(response);
         if(response)
         {
             setTimeout(()=>{setError(true)},100);

@@ -8,7 +8,7 @@ const UserDashboard = ({ callLogout, timesheet }) => {
         callLogout();
 
     }
-    console.log(timesheet);
+    // console.log(timesheet);
     return (
         <div>
             <Navbar onLogoutclick={onLogout} />
@@ -34,9 +34,9 @@ const UserDashboard = ({ callLogout, timesheet }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {timesheet.map(item => {
+                    {timesheet.map((item,key) => {
                         return (
-                            <tr key={item.timesheetNumber}>
+                            <tr key = {key} >
                                 {/* <td>{item.timesheetNumber}</td> */}
                                 <td>{item.resourceName}</td>
                                 <td>{item.periodStart}</td>
