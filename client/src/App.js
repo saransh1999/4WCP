@@ -18,7 +18,7 @@ const App = () => {
   const handleLoginSubmit = async ({ employee_id, password }) => {
 
 
-    console.log("handle submit called");
+    // console.log("handle submit called");
     try {
       const response = await axios.post("http://localhost:5000/api/login", { employee_id, password });
       setLoginStatus(true);
