@@ -1,71 +1,106 @@
 import Login from "./components/Login";
 import axios from "axios";
-import { useState , useEffect } from 'react';
+import { useState, useEffect, useInsertionEffect } from 'react';
 import UserDashboard from "./components/UserDashboard";
 import jwt_decode from "jwt-decode";
 
 
-
-function App() {
+const App = () => {
   const [loginStatus, setLoginStatus] = useState(false);
   const [acessToken, setAcessToken] = useState("");
-  const [refreshToken, setRefreshToken] = useState("");
   const [decoded, setDecoded] = useState("");
-  const [timesheet, setTimesheet] = useState([]);
+  // const [timesheet, setTimesheet] = useState([]);
+  const [employeeTimesheet, setEmployeeTimesheet] = useState([]);
+  const [managerTimesheet, setManagerTimesheet] = useState([]);
+  const [role, setRole] = useState("Employee"); // Two states possible emploee and manager
+  // const [refreshToken, setRefreshToken] = useState("");
 
-  // console.log(localStorage.getItem("acessToken"));
-
-  const handleLoginSubmit = async({employee_id,password}) =>{
+  const handleLoginSubmit = async ({ employee_id, password }) => {
 
 
     console.log("handle submit called");
-    try{
-      const response = await axios.post("http://localhost:5000/api/login", {employee_id,password});
+    try {
+      const response = await axios.post("http://localhost:5000/api/login", { employee_id, password });
       setLoginStatus(true);
       setAcessToken(response.data.accessToken);
-      setRefreshToken(response.data.refreshToken);
+      // setRefreshToken(response.data.refreshToken);
       // console.log(response.data.refreshToken);
 
-    }catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
 
-    const onLogoutclick = async() =>
-    {
-      localStorage.setItem("acessToken","");
-      setAcessToken("");
-      setLoginStatus(false);
-    }
-  
+  const onLogoutclick = async () => {
+    localStorage.setItem("acessToken", "");
+    setAcessToken("");
+    setLoginStatus(false);
+  }
 
-    const getTimesheetdata = async() =>{
-      try{
-        const response = await axios.get("http://localhost:5001/Timesheet/")
-        setTimesheet(response.data);
-      }
-      catch(err){
-        console.log(err);
-      }
+
+  const getEmployeeTimesheetdata = async () => {
+    try {
+      // const token = acessToken;
+      // const response = await axios.get("http://localhost:5001/Timesheet/",{token});
+      const response = await axios.get("http://localhost:5001/Timesheet/")
+      setEmployeeTimesheet(response.data);
     }
-  useEffect(()=>{
-    if(localStorage.getItem("acessToken")!==null&&localStorage.getItem("acessToken")!=="")
-    {
+    catch (err) {
+      console.log(err);
+    }
+  }
+  const getManagerTimesheetdata = async () => {
+    try {
+      // const token = acessToken;
+      // const response = await axios.get("http://localhost:5001/Timesheet/",{token});
+      const response = await axios.get("http://localhost:5001/Manager")
+      setManagerTimesheet(response.data);
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+  useEffect(() => {
+
+    if (localStorage.getItem("acessToken") !== null && localStorage.getItem("acessToken") !== "") {
       setAcessToken(localStorage.getItem("acessToken"));
       setLoginStatus(true);
     }
 
-    if(acessToken !== "")
-    {
+    if (acessToken !== "") {
       setDecoded(jwt_decode(acessToken));
-      localStorage.setItem("acessToken",acessToken);
-      getTimesheetdata();
+
+      //set local storage object
+      localStorage.setItem("acessToken", acessToken);
+
+
     }
-  },[acessToken])
+  }, [acessToken]);
+
+  useEffect(() => {
+    if (decoded !== "") {
+      if (decoded.isAdmin) {
+        setRole("Manager");
+
+        //generate Manager Timesheet
+
+        getManagerTimesheetdata();
+      }
+      else {
+
+        setRole("Employee");
+
+        //generate Timesheet
+        getEmployeeTimesheetdata();
+      }
+    }
+  }, [decoded])
 
   return (
     <div>
-      {loginStatus ? (<UserDashboard  callLogout={onLogoutclick} timesheet ={timesheet}/>) : (<Login onLoginSubmit = {handleLoginSubmit}/>)}
+      {loginStatus ? (<UserDashboard callLogout={onLogoutclick} employeeTimesheet={employeeTimesheet} 
+      managerTimesheet={managerTimesheet} role={role} getManagerTimesheetdata={getManagerTimesheetdata} />) 
+      : (<Login onLoginSubmit={handleLoginSubmit} />)}
     </div>
   );
 }

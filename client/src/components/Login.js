@@ -3,21 +3,18 @@ import logo from './logo.png'
 import { useState } from 'react';
 
 
-const Login = ({onLoginSubmit}) => 
-{
+const Login = ({ onLoginSubmit }) => {
     const [user, setUser] = useState(null);
     const [employee_id, setEmployee_id] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
-    const triggerSubmit = (event) =>{
+    const triggerSubmit = (event) => {
         event.preventDefault();
-        
-        const response = onLoginSubmit({employee_id,password});
 
-        // console.log(response);
-        if(response)
-        {
-            setTimeout(()=>{setError(true)},100);
+        const response = onLoginSubmit({ employee_id, password });
+
+        if (response) {
+            setTimeout(() => { setError(true) }, 100);
         }
     }
 
@@ -55,13 +52,13 @@ const Login = ({onLoginSubmit}) =>
                         <div className="d-flex justify-content-center">
                             <button type="submit" className="btn btn-primary btn-block mb-4">Sign in</button>
                         </div>
-                    <div className="d-flex justify-content-center">
-                    {error&&(
-                    <div className="alert alert-warning" role="alert">
-                    Invalid Credentials
-                  </div>
-                    )}
-                    </div>
+                        <div className="d-flex justify-content-center">
+                            {error && (
+                                <div className="alert alert-warning" role="alert">
+                                    Invalid Credentials
+                                </div>
+                            )}
+                        </div>
                     </form>
                 </div>
             </div>
