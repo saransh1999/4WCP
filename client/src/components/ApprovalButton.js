@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import axios from "axios";
 
 
-const ApprovalButton = ({ approvalStatus , getManagerTimesheetdata,itemId}) => {
+const ApprovalButton = ({ approvalStatus , getManagerTimesheetdata,itemId ,acessToken}) => {
     
 
     const approvecall = async() =>
@@ -16,7 +16,8 @@ const ApprovalButton = ({ approvalStatus , getManagerTimesheetdata,itemId}) => {
         }
         catch (err)
         {
-            console.log(err);
+            console.log("aprove call error called");
+            console.log(err.response);
         }
     }
     const denycall = async() =>

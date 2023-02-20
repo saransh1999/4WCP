@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 import UserTable from './UserTable';
 
 
-const UserDashboard = ({ callLogout, employeeTimesheet,managerTimesheet, role ,getManagerTimesheetdata }) => {
+const UserDashboard = ({ callLogout, employeeTimesheet,managerTimesheet, role ,getManagerTimesheetdata,acessToken }) => {
     const onLogout = () => {
         callLogout();
         
@@ -14,7 +14,7 @@ const UserDashboard = ({ callLogout, employeeTimesheet,managerTimesheet, role ,g
     return (
         <div>
             <Navbar onLogoutclick={onLogout} />
-            <UserTable  employeeTimesheet={employeeTimesheet} managerTimesheet={managerTimesheet} role ={role} getManagerTimesheetdata={getManagerTimesheetdata}/>
+            <UserTable  employeeTimesheet={employeeTimesheet} managerTimesheet={managerTimesheet} role ={role} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/>
         </div>
     )
 }

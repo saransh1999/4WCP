@@ -4,7 +4,7 @@ import ManagerTableRow from './ManagerTableRow';
 
 
 
-const ManagerTable = ({ timesheet, getManagerTimesheetdata}) => {
+const ManagerTable = ({ timesheet, getManagerTimesheetdata,acessToken}) => {
   return (
     <div>
       <Table striped bordered hover>
@@ -32,7 +32,7 @@ const ManagerTable = ({ timesheet, getManagerTimesheetdata}) => {
           {timesheet.map((item, key) => {
             return (
               <tr key={key} >
-                <ManagerTableRow item={item} getManagerTimesheetdata={getManagerTimesheetdata}/>
+                <ManagerTableRow item={item} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/>
               </tr>
             );
           })}

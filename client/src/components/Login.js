@@ -3,15 +3,17 @@ import logo from './logo.png'
 import { useState } from 'react';
 
 
-const Login = ({ onLoginSubmit }) => {
-    const [user, setUser] = useState(null);
+const Login = ({ handleLoginSubmit }) => {
+
+
     const [employee_id, setEmployee_id] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
     const triggerSubmit = (event) => {
         event.preventDefault();
-
-        const response = onLoginSubmit({ employee_id, password });
+        const employeeID = employee_id;
+        const employeePassword = password;
+        const response = handleLoginSubmit({ employeeID, employeePassword });
 
         if (response) {
             setTimeout(() => { setError(true) }, 100);

@@ -15,9 +15,10 @@ const App = () => {
   const [role, setRole] = useState("Employee"); // Two states possible emploee and manager
   // const [refreshToken, setRefreshToken] = useState("");
 
-  const handleLoginSubmit = async ({ employee_id, password }) => {
+  const handleLoginSubmit = async ({ employeeID, employeePassword }) => {
 
-
+    const employee_id =employeeID;
+    const password = employeePassword;
     // console.log("handle submit called");
     try {
       const response = await axios.post("http://localhost:5000/api/login", { employee_id, password });
@@ -99,8 +100,8 @@ const App = () => {
   return (
     <div>
       {loginStatus ? (<UserDashboard callLogout={onLogoutclick} employeeTimesheet={employeeTimesheet} 
-      managerTimesheet={managerTimesheet} role={role} getManagerTimesheetdata={getManagerTimesheetdata} />) 
-      : (<Login onLoginSubmit={handleLoginSubmit} />)}
+      managerTimesheet={managerTimesheet} role={role} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/>) 
+      : (<Login handleLoginSubmit={handleLoginSubmit} />)}
     </div>
   );
 }
