@@ -3,7 +3,8 @@ import EmployeeTable from './EmployeeTable';
 import ManagerTable from './ManagerTable';
 import Navbar from './Navbar'
 import UserTable from './UserTable';
-
+import Card from './Cards';
+import Sidebar from './Sidebar';
 
 const UserDashboard = ({ callLogout, employeeTimesheet,managerTimesheet, role ,getManagerTimesheetdata,acessToken }) => {
     const onLogout = () => {
@@ -13,8 +14,8 @@ const UserDashboard = ({ callLogout, employeeTimesheet,managerTimesheet, role ,g
 
     return (
         <div>
-            <Navbar onLogoutclick={onLogout} />
-            <UserTable  employeeTimesheet={employeeTimesheet} managerTimesheet={managerTimesheet} role ={role} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/>
+            <Sidebar employeeTimesheet={employeeTimesheet} managerTimesheet={managerTimesheet} role ={role} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/>
+            {/* <UserTable  employeeTimesheet={employeeTimesheet} managerTimesheet={managerTimesheet} role ={role} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/> */}
         </div>
     )
 }
