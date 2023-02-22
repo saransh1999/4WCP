@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect, useInsertionEffect } from 'react';
 import UserDashboard from "./components/UserDashboard";
 import jwt_decode from "jwt-decode";
-
+const address = "http://localhost:5000";
 
 const App = () => {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -21,7 +21,7 @@ const App = () => {
     const password = employeePassword;
     // console.log("handle submit called");
     try {
-      const response = await axios.post("http://localhost:5000/api/login", { employee_id, password });
+      const response = await axios.post((address+"/api/login"), { employee_id, password });
       setLoginStatus(true);
       setAcessToken(response.data.accessToken);
       // setRefreshToken(response.data.refreshToken);
@@ -42,9 +42,9 @@ const App = () => {
   const getEmployeeTimesheetdata = async () => {
     try {
       // const token = acessToken;
-      // const response = await axios.get("http://localhost:5001/Timesheet/",{token});
+      // const response = await axios.post("http://localhost:5001/Timesheet/",{token});
       const response = await axios.get("http://localhost:5001/Timesheet/")
-      setEmployeeTimesheet(response.data);
+      setEmployeeTimesheet(Object.values(response.data));
     }
     catch (err) {
       console.log(err);
@@ -53,8 +53,8 @@ const App = () => {
   const getManagerTimesheetdata = async () => {
     try {
       // const token = acessToken;
-      // const response = await axios.get("http://localhost:5001/Timesheet/",{token});
-      const response = await axios.get("http://localhost:5001/Manager")
+      // const response = await axios.get("http://localhost:5001/Manager/",{token});
+      const response = await axios.get("http://localhost:5001/Manager/",{})
       setManagerTimesheet(response.data);
     }
     catch (err) {

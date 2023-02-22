@@ -1,4 +1,11 @@
 .form-body{
     width: 25em;
-    /* border: 2px solid blue; */
-};
+    border: 2px solid blue;
+}
+.table-Outer
+{
+    border: 2px solid black;
+    border-radius: 2%;
+    padding: 10px
+    ;
+}

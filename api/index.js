@@ -53,7 +53,7 @@ app.post("/api/refresh", (request, response) => {
     });
 })
 const generateAccessToken =(user)=>{
-    return jwt.sign({ id: user.id, isAdmin: user.isAdmin }, "mySecretKey", { expiresIn: "10m" });;
+    return jwt.sign({ id: user.id, isAdmin: user.isAdmin }, "my top secret key");;
 }
 
 const generateRefreshtoken = (user)=>{
@@ -89,7 +89,7 @@ const verify = (request, response, next) => {
     if (authHeader) {
         const token = authHeader.split(" ")[1];
 
-        jwt.verify(token, "mySecretKey", (err, user) => {
+        jwt.verify(token, "my top secret key", (err, user) => {
             if (err) {
                 return response.status(403).json("Token is not valid");
             }
