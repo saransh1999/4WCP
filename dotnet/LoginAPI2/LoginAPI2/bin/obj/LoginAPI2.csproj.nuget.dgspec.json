@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\manraj.hanjra\\Downloads\\LoginAPI2\\LoginAPI2\\bin\\LoginAPI2.csproj": {}
+    "C:\\Users\\manraj.hanjra\\OneDrive - Incedo Technology Solutions Ltd\\Documents\\API_4WCP\\4WCP\\dotnet\\LoginAPI2\\LoginAPI2\\bin\\LoginAPI2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\manraj.hanjra\\Downloads\\LoginAPI2\\LoginAPI2\\bin\\LoginAPI2.csproj": {
+    "C:\\Users\\manraj.hanjra\\OneDrive - Incedo Technology Solutions Ltd\\Documents\\API_4WCP\\4WCP\\dotnet\\LoginAPI2\\LoginAPI2\\bin\\LoginAPI2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\manraj.hanjra\\Downloads\\LoginAPI2\\LoginAPI2\\bin\\LoginAPI2.csproj",
+        "projectUniqueName": "C:\\Users\\manraj.hanjra\\OneDrive - Incedo Technology Solutions Ltd\\Documents\\API_4WCP\\4WCP\\dotnet\\LoginAPI2\\LoginAPI2\\bin\\LoginAPI2.csproj",
         "projectName": "LoginAPI2",
-        "projectPath": "C:\\Users\\manraj.hanjra\\Downloads\\LoginAPI2\\LoginAPI2\\bin\\LoginAPI2.csproj",
+        "projectPath": "C:\\Users\\manraj.hanjra\\OneDrive - Incedo Technology Solutions Ltd\\Documents\\API_4WCP\\4WCP\\dotnet\\LoginAPI2\\LoginAPI2\\bin\\LoginAPI2.csproj",
         "packagesPath": "C:\\Users\\manraj.hanjra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\manraj.hanjra\\Downloads\\LoginAPI2\\LoginAPI2\\bin\\obj\\",
+        "outputPath": "C:\\Users\\manraj.hanjra\\OneDrive - Incedo Technology Solutions Ltd\\Documents\\API_4WCP\\4WCP\\dotnet\\LoginAPI2\\LoginAPI2\\bin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,6 +45,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.2, )"

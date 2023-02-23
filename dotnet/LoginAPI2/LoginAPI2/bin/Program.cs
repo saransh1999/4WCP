@@ -2,6 +2,7 @@
 using LoginAPI2.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace LoginAPI2
 {
 	public class Program
@@ -21,7 +22,18 @@ namespace LoginAPI2
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
-			
+			var internalApppolicy = "internalApp";
+			builder.Services.AddCors(options =>
+			{
+				options.AddPolicy(name: internalApppolicy,
+				policy =>
+				{
+					policy.WithOrigins("https://localhost:3000", "http://localhost:3000").AllowAnyHeader()
+	 .AllowAnyMethod();
+				});
+			});
+
+
 
 			var app = builder.Build();
 
@@ -31,6 +43,8 @@ namespace LoginAPI2
 				app.UseSwagger();
 				app.UseSwaggerUI();
 			}
+
+			app.UseCors("internalApppolicy");
 
 			app.UseHttpsRedirection();
 
