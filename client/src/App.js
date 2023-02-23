@@ -21,7 +21,7 @@ const App = () => {
     const password = employeePassword;
     // console.log("handle submit called");
     try {
-      const response = await axios.post((address+"/api/login"), { employee_id, password });
+      const response = await axios.post("https://localhost:7050/api/Auth", { employee_id, password });
       setLoginStatus(true);
       setAcessToken(response.data.accessToken);
       // setRefreshToken(response.data.refreshToken);

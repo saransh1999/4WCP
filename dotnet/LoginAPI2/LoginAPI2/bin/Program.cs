@@ -44,7 +44,7 @@ namespace LoginAPI2
 				app.UseSwaggerUI();
 			}
 
-			app.UseCors("internalApppolicy");
+			app.UseCors(internalApppolicy);
 
 			app.UseHttpsRedirection();
 
