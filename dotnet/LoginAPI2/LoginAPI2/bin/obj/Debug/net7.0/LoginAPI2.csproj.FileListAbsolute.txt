@@ -154,6 +154,7 @@ C:\Users\manraj.hanjra\Downloads\LoginAPI2\LoginAPI2\bin\obj\Debug\net7.0\refint
 C:\Users\manraj.hanjra\Downloads\LoginAPI2\LoginAPI2\bin\obj\Debug\net7.0\LoginAPI2.pdb
 C:\Users\manraj.hanjra\Downloads\LoginAPI2\LoginAPI2\bin\obj\Debug\net7.0\LoginAPI2.genruntimeconfig.cache
 C:\Users\manraj.hanjra\Downloads\LoginAPI2\LoginAPI2\bin\obj\Debug\net7.0\ref\LoginAPI2.dll
+<<<<<<< HEAD
 C:\Projects\4WCP\4WCP\dotnet\LoginAPI2\LoginAPI2\bin\bin\Debug\net7.0\appsettings.Development.json
 C:\Projects\4WCP\4WCP\dotnet\LoginAPI2\LoginAPI2\bin\bin\Debug\net7.0\appsettings.json
 C:\Projects\4WCP\4WCP\dotnet\LoginAPI2\LoginAPI2\bin\bin\Debug\net7.0\Debug\net7.0\appsettings.Development.json
@@ -234,3 +235,5 @@ C:\Projects\4WCP\4WCP\dotnet\LoginAPI2\LoginAPI2\bin\obj\Debug\net7.0\refint\Log
 C:\Projects\4WCP\4WCP\dotnet\LoginAPI2\LoginAPI2\bin\obj\Debug\net7.0\LoginAPI2.pdb
 C:\Projects\4WCP\4WCP\dotnet\LoginAPI2\LoginAPI2\bin\obj\Debug\net7.0\LoginAPI2.genruntimeconfig.cache
 C:\Projects\4WCP\4WCP\dotnet\LoginAPI2\LoginAPI2\bin\obj\Debug\net7.0\ref\LoginAPI2.dll
+=======
+>>>>>>> 0a8e0f8146195692f0dc6615122da3ca17398b4b
