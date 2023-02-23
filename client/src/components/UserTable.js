@@ -3,6 +3,7 @@ import EmployeeTable from './EmployeeTable';
 import ManagerTable from './ManagerTable';
 
 
+<<<<<<< HEAD
 const UserTable = ({ employeeTimesheet, managerTimesheet, role, getManagerTimesheetdata, acessToken }) => {
     if (role === "Employee") {
         return (
@@ -17,6 +18,16 @@ const UserTable = ({ employeeTimesheet, managerTimesheet, role, getManagerTimesh
                 <ManagerTable timesheet={managerTimesheet} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken} />
             </div>
         )
+=======
+const UserTable = ({employeeTimesheet,managerTimesheet, role,getManagerTimesheetdata,acessToken}) => {
+    if(role === "Employee")
+    {
+        return <EmployeeTable employeeTimesheet = {employeeTimesheet}/>;
+    }
+    else
+    {
+        return <ManagerTable timesheet = {managerTimesheet} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/>
+>>>>>>> API1
     }
     // console.log("employeeTimesheet",employeeTimesheet);
 }

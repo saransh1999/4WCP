@@ -4,7 +4,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+<<<<<<< HEAD
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+=======
+>>>>>>> API1
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

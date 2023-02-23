@@ -1,7 +1,10 @@
 {
   "Timesheet": [
     {
+<<<<<<< HEAD
       "id":1,
+=======
+>>>>>>> API1
       "resourceName": "Roopali Chopra",
       "resourceId": 180972,
       "periodStart": "2021-09-27T00:00:00",
@@ -19,7 +22,10 @@
       "projectManager": "Rupesh Dnyaneshwar Ninawe"
     },
     {
+<<<<<<< HEAD
       "id":2,
+=======
+>>>>>>> API1
       "resourceName": "Roopali Chopra",
       "resourceId": 180972,
       "periodStart": "2021-10-04T00:00:00",
@@ -37,7 +43,10 @@
       "projectManager": "Rupesh Dnyaneshwar Ninawe"
     },
     {
+<<<<<<< HEAD
       "id":3,
+=======
+>>>>>>> API1
       "resourceName": "Roopali Chopra",
       "resourceId": 180972,
       "periodStart": "2021-10-11T00:00:00",
@@ -55,7 +64,10 @@
       "projectManager": "Rupesh Dnyaneshwar Ninawe"
     },
     {
+<<<<<<< HEAD
       "id":4,
+=======
+>>>>>>> API1
       "resourceName": "Roopali Chopra",
       "resourceId": 180972,
       "periodStart": "2021-10-18T00:00:00",
@@ -73,7 +85,10 @@
       "projectManager": "Rupesh Dnyaneshwar Ninawe"
     },
     {
+<<<<<<< HEAD
       "id":5,
+=======
+>>>>>>> API1
       "resourceName": "Roopali Chopra",
       "resourceId": 180972,
       "periodStart": "2021-10-25T00:00:00",
@@ -91,7 +106,10 @@
       "projectManager": "Rupesh Dnyaneshwar Ninawe"
     },
     {
+<<<<<<< HEAD
       "id":6,
+=======
+>>>>>>> API1
       "resourceName": "Roopali Chopra",
       "resourceId": 180972,
       "periodStart": "2021-11-01T00:00:00",
@@ -109,7 +127,10 @@
       "projectManager": "Rupesh Dnyaneshwar Ninawe"
     },
     {
+<<<<<<< HEAD
       "id":7,
+=======
+>>>>>>> API1
       "resourceName": "Roopali Chopra",
       "resourceId": 180972,
       "periodStart": "2021-09-27T00:00:00",
@@ -127,7 +148,10 @@
       "projectManager": "Ajay Dheer"
     },
     {
+<<<<<<< HEAD
       "id":8,
+=======
+>>>>>>> API1
       "resourceName": "Roopali Chopra",
       "resourceId": 180972,
       "periodStart": "2021-10-25T00:00:00",
