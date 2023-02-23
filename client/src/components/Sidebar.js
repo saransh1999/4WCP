@@ -7,8 +7,8 @@ import UserTable from "./UserTable";
 
 const Sidebar1 = ({ clientInfo, profilePicture }) => {
   return (
-    <div className="sidebar">
-      <div className="d-flex align-items-center mb-3">
+    <div className="sidebar" style={{marginRight: "auto", marginLeft: "auto"}}>
+      <div className="mb-3 mt-4" style={{textAlign: "center"}}>
         <img
           src={profilePicture}
           alt="Profile"
@@ -17,8 +17,8 @@ const Sidebar1 = ({ clientInfo, profilePicture }) => {
           height="100"
         />
       </div>
-      <div>
-        <h6 className="mb-0">{clientInfo.name}</h6>
+      <div style={{textAlign: "center"}}>
+        <h6>{clientInfo.name}</h6>
         <p className="text-muted mb-0">{clientInfo.email}</p>
       </div>
       {/* <ul className="list-unstyled">
