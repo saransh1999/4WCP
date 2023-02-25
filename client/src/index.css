@@ -1,10 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
 .form-body{
     width: 25em;
     /* border: 2px solid blue; */
 }
 .table-Outer
 {
-    border: 2px solid black;
-    border-radius: 2%;
-    margin: 5px;
+    width: 100%;
+    flex-grow: 1;
+    /* border: 2px solid black; */
+    /* border-radius: 2%; */
+    margin: 5px
 }
+.sidebar-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20px;
+    width: 20px;
+    padding: 0;
+  }
+  
+  .dash {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+  }
+  .hellouser
+  {
+      font-size: larger;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  .card-outer{
+      padding: 2px;
+  }

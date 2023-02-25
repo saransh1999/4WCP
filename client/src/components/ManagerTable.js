@@ -1,9 +1,10 @@
 import React from 'react'
+import ApprovalCards from './ApprovalCards';
 import DataTable from 'react-data-table-component';
 import ApprovalButton from './ApprovalButton';
 import styled from 'styled-components';
 import Button from './Button';
-import { useState,useMemo } from 'react';
+import { useState, useMemo } from 'react';
 const calcExtraHours = (row) => {
   const extraHours = row.hoursDone - row.hoursRequired;
 
@@ -61,11 +62,22 @@ const ManagerTable = ({ timesheet, getManagerTimesheetdata, acessToken }) => {
 
   const [filterText, setFilterText] = React.useState('');
   const [approvalFilter, setApprovalFilter] = useState('');
-
   const [resetPaginationToggle, setResetPaginationToggle] = React.useState(false);
+
   const filteredItems = timesheet.filter(
-    item => item.resourceName && item.resourceName.toLowerCase().includes(filterText.toLowerCase())
-    &&item.approvalStatus.toLowerCase().includes(approvalFilter.toLowerCase()),
+    item => {
+      if(approvalFilter==="Awaiting Approval")
+      {
+        const extraHours = item.hoursDone - item.hoursRequired;
+        return item.resourceName && item.resourceName.toLowerCase().includes(filterText.toLowerCase())
+        && item.approvalStatus.toLowerCase().includes(approvalFilter.toLowerCase())&&extraHours>0
+      }
+      else
+      {
+        return item.resourceName && item.resourceName.toLowerCase().includes(filterText.toLowerCase())
+        && item.approvalStatus.toLowerCase().includes(approvalFilter.toLowerCase())
+      }
+    },
   );
 
   const subHeaderComponentMemo = React.useMemo(() => {
@@ -93,7 +105,7 @@ const ManagerTable = ({ timesheet, getManagerTimesheetdata, acessToken }) => {
   const columns = [
     {
       selector: row => row.resourceName,
-      name: 'Emp Name',
+      name: 'Employee Name',
       sortable: true
     },
     {
@@ -118,16 +130,26 @@ const ManagerTable = ({ timesheet, getManagerTimesheetdata, acessToken }) => {
       sortable: true
     }, {
       cell: approvalcall,
+      minWidth: "180px",
       name: 'Approval Status'
     }
   ];
 
-
-
-
-
+  const filterApproved =() =>
+  {
+    setApprovalFilter("Approved");
+  }
+  const filterDeny =() =>
+  {
+    setApprovalFilter("Draft");
+  }
+  const filterWaiting =() =>
+  {
+    setApprovalFilter("Awaiting Approval");
+  }
   return (
-    <div className= "table-Outer">
+    <div>
+      <ApprovalCards timesheet={timesheet}  filterApproved={filterApproved} filterWaiting={filterWaiting} filterDeny={filterDeny} />
       <DataTable
         columns={columns}
         data={filteredItems}
@@ -135,7 +157,6 @@ const ManagerTable = ({ timesheet, getManagerTimesheetdata, acessToken }) => {
         paginationResetDefaultPage={resetPaginationToggle} //a hook to reset pagination to page 1
         subHeader
         subHeaderComponent={subHeaderComponentMemo}
-        // selectableRows
         persistTableHead
       />
     </div>
@@ -143,35 +164,3 @@ const ManagerTable = ({ timesheet, getManagerTimesheetdata, acessToken }) => {
 }
 
 export default ManagerTable;
-
-      // <Table striped bordered hover>
-      //   <thead>
-      //     <tr>
-      //       {/* <th>Timesheet ID</th> */}
-      //       <th>Resource Name</th>
-      //       <th>Period Start</th>
-      //       <th>Period End</th>
-      //       <th>Extra Hours</th>
-      //       <th>Approval Status</th>
-      //       <th>Timesheet Number</th>
-      //       <th>Vertical</th>
-      //       <th>Horizontal</th>
-      //       <th>Sub Horizontal</th>
-      //       <th>customerId</th>
-      //       <th>customerName</th>
-      //       <th>projectId</th>
-      //       <th>projectName</th>
-      //       <th>projectManager</th>
-
-      //     </tr>
-      //   </thead>
-      //   <tbody>
-      //     {timesheet.map((item, key) => {
-      //       return (
-      //         <tr key={key} >
-      //           <ManagerTableRow item={item} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/>
-      //         </tr>
-      //       );
-      //     })}
-      //   </tbody>
-      // </Table>
