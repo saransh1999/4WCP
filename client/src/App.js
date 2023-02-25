@@ -9,7 +9,6 @@ const App = () => {
   const [loginStatus, setLoginStatus] = useState(false);
   const [acessToken, setAcessToken] = useState("");
   const [decoded, setDecoded] = useState("");
-  // const [timesheet, setTimesheet] = useState([]);
   const [employeeTimesheet, setEmployeeTimesheet] = useState([]);
   const [managerTimesheet, setManagerTimesheet] = useState([]);
   const [role, setRole] = useState("Employee"); // Two states possible emploee and manager
@@ -21,17 +20,7 @@ const App = () => {
     const password = employeePassword;
     // console.log("handle submit called");
     try {
-      // const response = await fetch("https://localhost:7050/api/Auth", {
-      //   method: "POST",
-      //   body: JSON.stringify({
-      //     employee_id: {employee_id},
-      //     password: {password}
-      //   }),
-      //   headers: {
-      //     "Content-type": "application/json; charset=UTF-8"
-      //   }
-      // });
-      const response = await axios.post("https://localhost:7050/api/Auth/", { employee_id, password });
+      const response = await axios.post("http://localhost:5000/api/login", { employee_id, password });
       console.log(response);
       setLoginStatus(true);
       setAcessToken(response.data.accessToken);

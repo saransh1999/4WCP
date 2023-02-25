@@ -13,9 +13,9 @@ const UserTable = ({ employeeTimesheet, managerTimesheet, role, getManagerTimesh
     }
     else {
         return (
-            <div className = "table-Outer">
+            <>
                 <ManagerTable timesheet={managerTimesheet} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken} />
-            </div>
+            </>
         )
     }
     // console.log("employeeTimesheet",employeeTimesheet);

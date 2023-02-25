@@ -1,5 +1,5 @@
 import React from 'react'
-import BootstrapTable from 'react-bootstrap-table-next';
+// import BootstrapTable from 'react-bootstrap-table-next';
 
 
 const EmployeeTable = ({ employeeTimesheet }) => {
@@ -39,13 +39,13 @@ const EmployeeTable = ({ employeeTimesheet }) => {
     return (
 
         <>
-            <BootstrapTable keyField='id' 
+            {/* <BootstrapTable keyField='id' 
             data={employeeTimesheet} 
             columns={columns}
             bordered
             striped
             hover
-          />
+          /> */}
         </>
     )
 }
