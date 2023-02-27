@@ -16,7 +16,7 @@ const Login = ({ handleLoginSubmit }) => {
         const response = handleLoginSubmit({ employeeID, employeePassword });
 
         if (response) {
-            setTimeout(() => { setError(true) }, 100);
+            setTimeout(() => { setError(true) },1000);
         }
     }
 
@@ -31,7 +31,8 @@ const Login = ({ handleLoginSubmit }) => {
                     <form onSubmit={triggerSubmit} className="form-body">
 
 
-                        <div className="form-outline mb-4">
+                        <div className="form-outline mb-4" >
+                        Employee Id :
                             <input type="employee_id" id="form2Example1"
                                 className="form-control" placeholder="Employee Id"
                                 onChange={(event) => {
@@ -43,6 +44,7 @@ const Login = ({ handleLoginSubmit }) => {
 
 
                         <div className="form-outline mb-4">
+                            Password :
                             <input type="password" id="form2Example2"
                                 className="form-control" placeholder="Password"
                                 onChange={(event) => {

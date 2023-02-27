@@ -59,6 +59,8 @@ const FilterComponent = ({ filterText, onFilter, onClear }) => (
 );
 
 const ManagerTable = ({ timesheet, getManagerTimesheetdata, acessToken }) => {
+  console.log("rerender")
+
 
   const [filterText, setFilterText] = React.useState('');
   const [approvalFilter, setApprovalFilter] = useState('');
@@ -130,7 +132,7 @@ const ManagerTable = ({ timesheet, getManagerTimesheetdata, acessToken }) => {
       sortable: true
     }, {
       cell: approvalcall,
-      minWidth: "180px",
+      minWidth: "220px",
       name: 'Approval Status'
     }
   ];

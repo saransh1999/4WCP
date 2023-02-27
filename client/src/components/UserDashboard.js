@@ -1,7 +1,7 @@
 import React from 'react'
 import EmployeeTable from './EmployeeTable';
 import ManagerTable from './ManagerTable';
-import Navbar from './Navbar'
+import MyNavbar from './MyNavbar'
 import UserTable from './UserTable';
 import { Sidebar, Menu, MenuItem, SubMenu, useProSidebar } from 'react-pro-sidebar';
 import Footer from './Footer';
@@ -15,7 +15,7 @@ const UserDashboard = ({ callLogout, employeeTimesheet, managerTimesheet, role, 
     const { collapseSidebar } = useProSidebar();
     return (
         <div>
-            <Navbar onLogoutclick={onLogout} />
+            <MyNavbar onLogoutclick={onLogout} />
             <div className="d-flex justify-content-start">
                 <div>
                     <Sidebar>

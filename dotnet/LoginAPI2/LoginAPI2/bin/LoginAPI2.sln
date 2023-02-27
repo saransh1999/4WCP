@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "authtest", "authtest.csproj", "{A2299651-636A-402E-8BB1-7AA1646F2F33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginAPI2", "LoginAPI2.csproj", "{03D407D3-F4C8-41F7-9D4E-10B837E0943D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2299651-636A-402E-8BB1-7AA1646F2F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2299651-636A-402E-8BB1-7AA1646F2F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2299651-636A-402E-8BB1-7AA1646F2F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2299651-636A-402E-8BB1-7AA1646F2F33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03D407D3-F4C8-41F7-9D4E-10B837E0943D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D407D3-F4C8-41F7-9D4E-10B837E0943D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D407D3-F4C8-41F7-9D4E-10B837E0943D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D407D3-F4C8-41F7-9D4E-10B837E0943D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {478D054C-4104-4BFC-BEF4-3100D7BA35E2}
+		SolutionGuid = {77C3B1B6-5275-4E7E-86CF-66BF6A9D54AC}
 	EndGlobalSection
 EndGlobal

@@ -9,10 +9,10 @@ const App = () => {
   const [loginStatus, setLoginStatus] = useState(false);
   const [acessToken, setAcessToken] = useState("");
   const [decoded, setDecoded] = useState("");
+
   const [employeeTimesheet, setEmployeeTimesheet] = useState([]);
   const [managerTimesheet, setManagerTimesheet] = useState([]);
   const [role, setRole] = useState("Employee"); // Two states possible emploee and manager
-  // const [refreshToken, setRefreshToken] = useState("");
 
   const handleLoginSubmit = async ({ employeeID, employeePassword }) => {
 
@@ -20,12 +20,10 @@ const App = () => {
     const password = employeePassword;
     // console.log("handle submit called");
     try {
-      const response = await axios.post("http://localhost:5000/api/login", { employee_id, password });
-      console.log(response);
+      const response = await axios.post("https://localhost:7050/api/Auth", { employee_id, password });
+      // console.log(response);
       setLoginStatus(true);
       setAcessToken(response.data.accessToken);
-      // setRefreshToken(response.data.refreshToken);
-      // console.log(response.data.refreshToken);
 
     } catch (err) {
       console.log(err)
@@ -41,9 +39,9 @@ const App = () => {
 
   const getEmployeeTimesheetdata = async () => {
     try {
-      // const token = acessToken;
-      // const response = await axios.post("http://localhost:5001/Timesheet/",{token});
-      const response = await axios.get("http://localhost:5001/Timesheet/")
+      const token = acessToken;
+      const response = await axios.post("https://localhost:7257/api/Name/EmployeeDashboard",{token});
+      // console.log(response);
       setEmployeeTimesheet(Object.values(response.data));
     }
     catch (err) {
@@ -52,9 +50,10 @@ const App = () => {
   }
   const getManagerTimesheetdata = async () => {
     try {
-      // const token = acessToken;
-      // const response = await axios.get("http://localhost:5001/Manager/",{token});
-      const response = await axios.get("http://localhost:5001/Manager/",{})
+      console.log("new timesheet rendered")
+      const token=acessToken;
+      const response = await axios.post("https://localhost:7257/api/Name/ManagerDashboard",{token})
+      console.log(response);
       setManagerTimesheet(response.data);
     }
     catch (err) {
@@ -80,7 +79,7 @@ const App = () => {
 
   useEffect(() => {
     if (decoded !== "") {
-      if (decoded.isAdmin) {
+      if (decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]==="manager") {
         setRole("Manager");
 
         //generate Manager Timesheet

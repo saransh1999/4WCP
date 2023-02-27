@@ -13,7 +13,6 @@ const UserTable = ({ employeeTimesheet, managerTimesheet, role, getManagerTimesh
                 <div className="hellouser">
                     Hello {employee}
                 </div>
-                <ApprovalCards timesheet={employeeTimesheet}/>
                 <EmployeeTable employeeTimesheet={employeeTimesheet} />;
             </div>
         )

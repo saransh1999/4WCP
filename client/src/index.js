@@ -7,14 +7,19 @@ import './index.css';
 import { ProSidebarProvider } from 'react-pro-sidebar';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { BrowserRouter as Router } from 'react-router-dom';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ProSidebarProvider>
   <React.StrictMode>
+    <ProSidebarProvider>
+  <Router>
     <App />
-  </React.StrictMode>
+    </Router>
   </ProSidebarProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

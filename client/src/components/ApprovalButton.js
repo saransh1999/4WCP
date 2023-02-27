@@ -8,10 +8,11 @@ const ApprovalButton = ({ approvalStatus , getManagerTimesheetdata,itemId ,acess
     const approvecall = async() =>
     {
         const id=itemId;
-        const approvalStatus="Approved";
+        const status="Approved";
+        const par = "?id="+id+"&status=Approved";
         try
         {
-            const response = await axios.post("http://localhost:5001/Manager",{id,approvalStatus});
+            const response = await axios.post("https://localhost:7257/api/Name/MID"+par);
             getManagerTimesheetdata();
         }
         catch (err)
@@ -23,10 +24,11 @@ const ApprovalButton = ({ approvalStatus , getManagerTimesheetdata,itemId ,acess
     const denycall = async() =>
     {
         const id=itemId;
-        const approvalStatus="Draft";
+        const status="Draft";
         try
         {
-            const response = await axios.post("http://localhost:5001/Manager",{id,approvalStatus});
+            const response = await axios.post("https://localhost:7257/api/Name/MID",{params:{id,status}});
+
             getManagerTimesheetdata();
         }
         catch (err)
