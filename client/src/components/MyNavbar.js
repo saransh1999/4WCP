@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './logo.png'
+import logo from './logo2.png'
 import bootstrap from 'bootstrap'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -12,14 +12,14 @@ const MyNavbar = ({ onLogoutclick }) => {
     }
     return (
         <div>
-            <Navbar expand="lg" bg="primary" variant="dark">
+            <Navbar expand="lg" style = {{backgroundColor: "orange" }} variant="light">
                     <img src={logo} alt="Logo" width="60em" height="45em" className="logo"/>
                 <Container>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#home"><div className="navelement">Home</div></Nav.Link>
                     </Nav>
                         <div>
-                            <button onClick={callLogout} className="btn btn-danger">Logout</button>
+                            <button onClick={callLogout} className="btn btn-dark">Logout</button>
                         </div>
                 </Container>
             </Navbar>

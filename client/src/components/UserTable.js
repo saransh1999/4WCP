@@ -9,7 +9,7 @@ const UserTable = ({ employeeTimesheet, managerTimesheet, role, getManagerTimesh
         if(employeeTimesheet[0])
             employee=employeeTimesheet[0].resourceName;
         return (
-            <div className = "tableOuter">
+            <div className = "table-Outer">
                 <div className="hellouser">
                     Hello {employee}
                 </div>

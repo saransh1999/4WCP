@@ -97,7 +97,7 @@ const App = () => {
   }, [decoded])
 
   return (
-    <div>
+    <div id="app">
       {loginStatus ? (<UserDashboard callLogout={onLogoutclick} employeeTimesheet={employeeTimesheet} 
       managerTimesheet={managerTimesheet} role={role} getManagerTimesheetdata={getManagerTimesheetdata} acessToken={acessToken}/>) 
       : (<Login handleLoginSubmit={handleLoginSubmit} />)}

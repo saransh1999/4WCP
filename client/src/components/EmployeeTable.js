@@ -6,6 +6,28 @@ import styled from 'styled-components';
 import Button from './Button';
 import { useState, useMemo } from 'react';
 
+
+const customStyles = {
+    // rows: {
+    //     style: {
+    //         minHeight: '72px', // override the row height
+    //     },
+    // },
+    headCells: {
+        style: {
+            fontSize: '15px',
+            fontWeight: 1000
+        },
+    }
+//     cells: {
+//         style: {
+//             paddingLeft: '8px', // override the cell padding for data cells
+//             paddingRight: '8px',
+//         },
+//     },
+};
+
+
 // import BootstrapTable from 'react-bootstrap-table-next';
 const calcExtraHours = (row) => {
     const extraHours = row.hoursDone - row.hoursRequired;
@@ -29,10 +51,6 @@ const columns = [
         name: 'Extra Hours',
         sortable: true
     }, {
-        selector: row => row.approvalStatus,
-        name: 'Approval Status',
-        sortable: true
-    }, {
         selector: row => row.customerName,
         name: 'Customer Name',
         sortable: true
@@ -43,6 +61,10 @@ const columns = [
     }, {
         selector: row => row.projectManager,
         name: 'Project Manager',
+        sortable: true
+    }, {
+        selector: row => row.approvalStatus,
+        name: 'Approval Status',
         sortable: true
     }
 ];
@@ -149,6 +171,7 @@ const EmployeeTable = ({ employeeTimesheet }) => {
                 subHeader
                 subHeaderComponent={subHeaderComponentMemo}
                 persistTableHead
+                customStyles={customStyles}
             />
         </>
     )

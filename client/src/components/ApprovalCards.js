@@ -21,29 +21,41 @@ function ApprovalCards({ timesheet, filterApproved, filterWaiting, filterDeny })
     return (
         <div className="d-flex justify-content-around">
             <div className="card-outer">
-                <Card style={{ width: '18rem', backgroundColor: "green" }}>
-                    <Card.Img style={{ height: '15rem' }} variant="top" src={acceptedIcon} />
+                <Card style={{ width: '18rem' }}>
                     <Card.Body>
-                        <Card.Title>Approved : {numberApproved}</Card.Title>
-                        <Button variant="primary" onClick={filterApproved}>Get Approved</Button>
+                        <div className="d-flex">
+                            <Card.Img style={{ width: '6rem', height: '5rem' }} variant="top" src={acceptedIcon} />
+                            <div>
+                                <Card.Title>Approved : {numberApproved}</Card.Title>
+                                <Button variant="primary" onClick={filterApproved}>Get Approved</Button>
+                            </div>
+                        </div>
                     </Card.Body>
                 </Card></div>
             <div className="card-outer">
-                <Card style={{ width: '18rem', backgroundColor: "yellow" }}>
-                    <Card.Img style={{ height: '15rem' }} variant="top" src={waiticon} />
+                <Card style={{ width: '18rem' }}>
                     <Card.Body>
-                        <Card.Title>Awaiting Approval : {numberWaiting}</Card.Title>
-                        <Button variant="primary" onClick={filterWaiting}>Get Waiting</Button>
+                        <div className="d-flex">
+                            <Card.Img style={{ width: '6rem', height: '5rem' }} variant="top" src={waiticon} />
+                            <div>
+                                <Card.Title>Pending : {numberWaiting}</Card.Title>
+                                <Button variant="primary" onClick={filterWaiting}>Get Waiting</Button>
+                            </div>
+                        </div>
                     </Card.Body>
                 </Card>
             </div>
             <div className="card-outer">
 
-                <Card style={{ width: '18rem', backgroundColor: "red" }}>
-                    <Card.Img style={{ height: '15rem' }} variant="top" src={rejectedicon} />
+                <Card style={{ width: '18rem' }}>
                     <Card.Body>
+                    <div className="d-flex">
+                            <Card.Img style={{ width: '6rem', height: '5rem' }} variant="top" src={rejectedicon} />
+                            <div>
                         <Card.Title>Deined : {numberDenied}</Card.Title>
                         <Button variant="primary" onClick={filterDeny}>Get Denied</Button>
+                        </div>
+                        </div>
                     </Card.Body>
                 </Card>
             </div>
