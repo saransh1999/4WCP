@@ -2,37 +2,29 @@ import Button from 'react-bootstrap/Button';
 import axios from "axios";
 
 
-const ApprovalButton = ({ approvalStatus , getManagerTimesheetdata,itemId ,acessToken}) => {
-    
+const ApprovalButton = ({ approvalStatus, getManagerTimesheetdata, itemId, acessToken }) => {
 
-    const approvecall = async() =>
-    {
-        const id=itemId;
-        const status="Approved";
-        const par = "?id="+id+"&status=Approved";
-        try
-        {
-            const response = await axios.post("https://localhost:7257/api/Name/MID"+par);
+
+    const approvecall = async () => {
+        const id = itemId;
+        const status = "Approved";
+        try {
+            const response = await axios.post("https://localhost:7257/api/Name/MID", { id, status });
             getManagerTimesheetdata();
         }
-        catch (err)
-        {
-            console.log("aprove call error called");
+        catch (err) {
+
             console.log(err.response);
         }
     }
-    const denycall = async() =>
-    {
-        const id=itemId;
-        const status="Draft";
-        try
-        {
-            const response = await axios.post("https://localhost:7257/api/Name/MID",{params:{id,status}});
-
+    const denycall = async () => {
+        try {
+            const id = itemId;
+            const status = "Draft";
+            const response = await axios.post("https://localhost:7257/api/Name/MID", { id, status });
             getManagerTimesheetdata();
         }
-        catch (err)
-        {
+        catch (err) {
             console.log(err);
         }
     }

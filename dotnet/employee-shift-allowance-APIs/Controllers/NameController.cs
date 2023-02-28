@@ -79,16 +79,16 @@ namespace authtest.Controllers
         //Team2dbContext Mdb = new Team2dbContext();
         [AllowAnonymous]
         [HttpPost("MID")]
-        public IActionResult Get(int id, string status)
+        public IActionResult Get(UpdateModel request)
         {
             var m = db.Timesheettables.
-                 Where(e => e.Id == id).First();
+                 Where(e => e.Id == request.id).First();
            
            
             if (m.ApprovalStatus != "Approved")
             {
 
-                m.ApprovalStatus = status;
+                m.ApprovalStatus = request.status;
                 db.SaveChanges();
 
             }
@@ -96,13 +96,13 @@ namespace authtest.Controllers
 
 
             MailAddress to = new MailAddress("employeeofincedo@gmail.com");
-             MailAddress from = new MailAddress("managerofincedo@gmail.com");
+             MailAddress from = new MailAddress("incedomanager@gmail.com");
              MailMessage message = new MailMessage(from, to);
              message.Subject = "status updated";
              message.Body = m.ApprovalStatus;
              System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient("smtp.gmail.com")
              {
-                 Credentials = new NetworkCredential("managerofincedo@gmail.com", "ndtlpheuszhexlyq"),
+                 Credentials = new NetworkCredential("incedomanager@gmail.com", "sfdbqiypukyxxoru"),
                  EnableSsl = true
              };
              // code in brackets above needed if authentication required

@@ -123,11 +123,11 @@ const EmployeeTable = ({ employeeTimesheet }) => {
         item => {
             if (approvalFilter === "Awaiting Approval") {
                 const extraHours = item.hoursDone - item.hoursRequired;
-                return item.resourceName && item.resourceName.toLowerCase().includes(filterText.toLowerCase())
+                return item.projectManager && item.projectManager.toLowerCase().includes(filterText.toLowerCase())
                     && item.approvalStatus.toLowerCase().includes(approvalFilter.toLowerCase()) && extraHours > 0
             }
             else {
-                return item.resourceName && item.resourceName.toLowerCase().includes(filterText.toLowerCase())
+                return item.projectManager && item.projectManager.toLowerCase().includes(filterText.toLowerCase())
                     && item.approvalStatus.toLowerCase().includes(approvalFilter.toLowerCase())
             }
         },
